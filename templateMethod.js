@@ -10,69 +10,77 @@
     https://www.javatpoint.com/interface-in-java
 */
 
-class TeamEvent {
-    prepareEvent(){
-        this.checkAvailabilities();
-        this.bookDate();
-        this.notifyParticipants();
-        this.bookVenue();
-        this.arrangeTransportation();
+/*
+    REFERENCES
+    JS
+    https://medium.com/@nanofaroque/template-method-design-pattern-in-javascript-286384155823
+    https://github.com/sohamkamani/javascript-design-patterns-for-humans#-template-method
+    https://medium.com/@yuribett/javascript-abstract-method-with-es6-5dbea4b00027
+
+    JAVA INTERFACES
+    https://www.geeksforgeeks.org/interfaces-in-java/
+    https://www.javatpoint.com/interface-in-java
+*/
+
+class Burger {
+    makeBurger(){
+        this.sliceBun();
+        this.grillBurger();
+        this.putCheece();
+        this.putSauce();
+        this.putVeggies();
     }
 
-    checkAvailabilities(){
-        console.log('Checking dates')
+    sliceBun(){
+        console.log('Slice the bun');
     }
 
-    bookDate(){
-        console.log('Booking date');
+    grillBurger(){
+        console.log('Grill the burger');
     }
 
-    notifyParticipants(){
-        console.log('Notifying participants');
+    putCheece(){
+        console.log('Putting some cheese');
     }
 
-    bookVenue() {
-        throw new Error('You have to implement the method bookVenue!');
+    putSauce(){
+        throw new Error('You have to implement the method putSauce!');
     }
 
-    arrangeTransportation() {
-        throw new Error('You have to implement the method arrangeTransportation!');
-    }
-}
-
-class LaserTagEvent extends TeamEvent {
-    bookDate(){
-        console.log('Booking date for Laser Tag');
-    }
-
-    notifyParticipants(){
-        console.log('Notifying participants for Laser Tag');
-    }
-
-    bookVenue() {
-        console.log('Booking laser tag place');
-    }
-
-    arrangeTransportation() {
-        console.log('Take metro');
+    putVeggies() {
+        throw new Error('You have to implement the method putVeggies!');
     }
 }
 
-class SarlatEvent extends TeamEvent {
-    bookDate(){
-        console.log('Booking date for Sarlat');
+class VeganBurger extends Burger {
+    grillBurger(){
+        console.log('Grill the vegan burger');
     }
 
-    notifyParticipants(){
-        console.log('Notifying participants for Sarlat');
+    putCheece(){
+        console.log('Putting some vegan cheese');
     }
 
-    bookVenue() {
-        return;
+    putSauce() {
+        console.log('Putting some vegan mayo');
     }
 
-    arrangeTransportation() {
-        console.log('Driving');
+    putVeggies() {
+        console.log('Put some tofu and mushrooms');
+    }
+}
+
+class DoubleBurger extends Burger {
+    grillBurger(){
+        console.log('Grill two burgers');
+    }
+
+    putSauce() {
+        console.log('Put some bbq sauce');
+    }
+
+    putVeggies() {
+        console.log('Put some letuce and tomato');
     }
 }
 
